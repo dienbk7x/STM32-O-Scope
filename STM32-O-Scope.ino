@@ -76,7 +76,7 @@ uint32 tt;
 #define  TOUCH_CALIB_Z 2
 
 // Time library - https://github.com/PaulStoffregen/Time
-#include "Time.h" //If you have issues with the default Time library change the name of this library to Time1 for example.
+#include "Time1.h" //If you have issues with the default Time library change the name of this library to Time1 for example.
 #define TZ    "UTC+1"
 
 // End RTC and NVRam initialization
@@ -865,7 +865,7 @@ void setCurrentTime() {
   serial_debug.print(thisArg.toInt() );
   serial_debug.println("]");
   setTime(thisArg.toInt());
-  time_t tt = now();
+  time_t tt = rt.getTime();
   rt.setTime(tt);
   serialCurrentTime();
 }
